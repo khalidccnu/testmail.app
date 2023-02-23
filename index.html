@@ -27,12 +27,14 @@
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="namespace" placeholder="Namespace">
                 <label for="namespace">Namespace</label>
+                <div class="alert alert-warning mt-2 d-none" role="alert">This field is required.</div>
             </div>
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="apikey" placeholder="API Key">
                 <label for="apikey">API Key</label>
+                <div class="alert alert-warning mt-2 d-none" role="alert">This field is required.</div>
             </div>
-            <button type="button" class="btn btn-outline-secondary text-uppercase w-100">Login <i class="bx bx-log-in-circle"></i></button>
+            <button type="button" class="btn btn-outline-secondary text-uppercase w-100" id="btn-login">Login <i class="bx bx-log-in-circle"></i></button>
         </div>
     </div>
 </section>
