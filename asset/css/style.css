@@ -2,3 +2,12 @@
 .login-box {
     max-width: 30rem;
 }
+
+/* ===== Email ===== */
+.email-box {
+    grid-template-columns: 1fr 2fr;
+}
+
+.email-selection-img {
+    max-width: 20rem;
+}
