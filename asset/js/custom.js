@@ -42,10 +42,10 @@ let displayEmail = async _ => {
 
             card.classList.add("card", "border-info");
             card.innerHTML = `
-            <div class="card-header">${email.from}</div>
+            <div class="card-header fw-medium">${email.from}</div>
             <div class="card-body">
                 <h5 class="card-title">${email.subject}</h5>
-                <p class="card-text"></p>
+                <p class="card-text text-truncate fw-light">${email.text}</p>
             </div>
             `;
 

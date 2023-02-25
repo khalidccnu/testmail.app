@@ -1,3 +1,11 @@
+/* ===== Google Font ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+/* ===== Common ===== */
+body {
+    font-family: "Poppins", sans-serif;
+}
+
 /* ===== Login ===== */
 .login-box {
     max-width: 30rem;
@@ -5,7 +13,16 @@
 
 /* ===== Email ===== */
 .email-box {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: minmax(0, 20rem) auto;
+}
+
+.start, .end .card {
+    max-height: 25rem;
+}
+
+.active-email {
+    color: #fff;
+    background-color: rgba(0, 98, 102, 0.75);
 }
 
 .email-selection-img {
