@@ -49,12 +49,17 @@
 <!-- Email -->
 <section id="email">
     <div class="container">
-        <div class="text-end mb-3">
+        <div class="spinner d-none text-center">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="d-none text-end mb-3">
             <button class="btn btn-sm btn-danger" id="btn-logout">Logout</button>
         </div>
         <div class="email-box d-grid gap-3">
             <div class="start d-flex flex-column gap-2 overflow-auto"></div>
-            <div class="end">
+            <div class="end d-none">
                 <div class="card overflow-auto">
                     <div class="email-selection-img mx-auto">
                         <lottie-player src="./asset/img/email.json" background="transparent" speed="1" class="card-img-top" loop autoplay></lottie-player>

@@ -1,3 +1,9 @@
+// load spinner
+let spinner = isLoad => {
+    if (isLoad) document.querySelector(".spinner").classList.remove("d-none");
+    else document.querySelector(".spinner").classList.add("d-none");
+}
+
 // user input validation
 let loginValidation = value => {
     if (value.trim() !== "") return false;
@@ -27,21 +33,20 @@ let setStorage = (ns, apikey) => {
 // display user email
 let displayEmail = async _ => {
     if (localStorage.ns && localStorage.apikey) {
+        spinner(true);
+
         document.getElementById("login").classList.add("d-none");
         document.getElementById("email").classList.remove("d-none");
+
+        let emailStart = document.querySelector("#email .start");
         let obj;
 
         await nsKeyFetch(localStorage.ns, localStorage.apikey).then(result => obj = result);
 
-        let emailStart = document.querySelector("#email .start");
-        let emailEnd = document.querySelector("#email .end .card");
-        emailStart.innerText = "";
-
         obj.emails.forEach(email => {
-            let card = document.createElement("div");
-
-            card.classList.add("card", "border-info");
-            card.innerHTML = `
+            let startCard = document.createElement("div");
+            startCard.classList.add("card", "border-info");
+            startCard.innerHTML = `
             <div class="card-header fw-medium">${email.from}</div>
             <div class="card-body">
                 <h5 class="card-title">${email.subject}</h5>
@@ -49,14 +54,19 @@ let displayEmail = async _ => {
             </div>
             `;
 
-            card.addEventListener("click", _ => {
-                for (let children of card.parentNode.children) children.classList.remove("active-email");
-                card.classList.add("active-email");
-                emailEnd.innerHTML = `${email.html}`;
+            startCard.addEventListener("click", _ => {
+                for (let children of startCard.parentNode.children) children.classList.remove("active-email");
+                startCard.classList.add("active-email");
+                emailStart.nextElementSibling.firstElementChild.innerHTML = `${email.html}`;
             });
 
-            emailStart.appendChild(card);
+            emailStart.appendChild(startCard);
         });
+
+        emailStart.nextElementSibling.classList.remove("d-none");
+        document.querySelector("#btn-logout").parentElement.classList.remove("d-none");
+
+        spinner(false);
     } else {
         document.getElementById("login").classList.remove("d-none");
         document.getElementById("email").classList.add("d-none");
