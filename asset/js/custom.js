@@ -19,8 +19,11 @@ let nsKeyFetch = (ns, key) => {
     return fetch(`https://api.testmail.app/api/json?apikey=${key}&namespace=${ns}&pretty=true`).then(r => r.json()).then(get => {
         let exist = isExist(get);
 
-        if (exist === false) return false;
-        else return get;
+        if (exist === false) {
+            document.querySelector(".ci-alert").classList.remove("d-none");
+
+            return false;
+        } else return get;
     });
 }
 
@@ -76,8 +79,8 @@ document.querySelector("#btn-login").addEventListener("click", async _ => {
         validationResult === false ? e.parentNode.lastElementChild.classList.add("d-none") : e.parentNode.lastElementChild.classList.remove("d-none");
     });
 
-    const alert = document.querySelectorAll(".login-box .alert");
-    for (let elem of alert) if (!elem.classList.contains("d-none")) return false;
+    const uiAlert = document.querySelectorAll(".login-box .ui-alert");
+    for (let alert of uiAlert) if (!alert.classList.contains("d-none")) return false;
 
     let ns = document.querySelector("#namespace").value;
     let apikey = document.querySelector("#apikey").value;
