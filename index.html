@@ -37,9 +37,13 @@
                 <label for="namespace">Namespace</label>
                 <div class="ui-alert alert alert-warning mt-2 d-none" role="alert">This field is required.</div>
             </div>
-            <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="apikey" placeholder="API Key">
+            <div class="position-relative form-floating mb-3">
+                <input type="password" class="form-control pe-5" id="apikey" placeholder="API Key">
                 <label for="apikey">API Key</label>
+                <span id="show-key" class="position-absolute top-50 end-0 translate-middle-y pe-3">
+                    <img src="./asset/img/eye-off.svg" alt="">
+                    <img src="./asset/img/eye.svg" alt="" class="d-none">
+                </span>
                 <div class="ui-alert alert alert-warning mt-2 d-none" role="alert">This field is required.</div>
             </div>
             <button type="button" class="btn btn-outline-secondary text-uppercase w-100" id="btn-login">Login <i class="bx bx-log-in-circle"></i></button>

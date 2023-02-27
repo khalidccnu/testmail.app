@@ -105,6 +105,21 @@ document.querySelector("#btn-toggle").addEventListener("click", _ => {
     document.querySelector("#email .start").classList.toggle("active-sidebar");
 });
 
+// show api key
+document.querySelector("#show-key").addEventListener("click", function () {
+    if (this.lastElementChild.classList.contains("d-none")) {
+        document.getElementById("apikey").type = "text";
+
+        this.firstElementChild.classList.add("d-none");
+        this.lastElementChild.classList.remove("d-none");
+    } else {
+        document.getElementById("apikey").type = "password";
+
+        this.firstElementChild.classList.remove("d-none");
+        this.lastElementChild.classList.add("d-none");
+    }
+});
+
 // initial load
 onload = _ => {
     displayEmail();

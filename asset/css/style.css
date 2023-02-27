@@ -11,6 +11,10 @@ body {
     max-width: 30rem;
 }
 
+#show-key {
+    cursor: pointer;
+}
+
 /* ===== Spinner ===== */
 #spinner {
     min-height: calc(100vh - 6rem);
