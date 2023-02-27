@@ -1,7 +1,7 @@
 // load spinner
 let spinner = isLoad => {
-    if (isLoad) document.querySelector(".spinner").classList.remove("d-none");
-    else document.querySelector(".spinner").classList.add("d-none");
+    if (isLoad) document.querySelector("#spinner").classList.replace("d-none", "d-flex");
+    else document.querySelector("#spinner").classList.replace("d-flex", "d-none");
 }
 
 // user input validation
@@ -35,9 +35,6 @@ let displayEmail = async _ => {
     if (localStorage.ns && localStorage.apikey) {
         spinner(true);
 
-        document.getElementById("login").classList.add("d-none");
-        document.getElementById("email").classList.remove("d-none");
-
         let emailStart = document.querySelector("#email .start");
         let obj;
 
@@ -58,18 +55,17 @@ let displayEmail = async _ => {
                 for (let children of startCard.parentNode.children) children.classList.remove("active-email");
                 startCard.classList.add("active-email");
                 emailStart.nextElementSibling.firstElementChild.innerHTML = `${email.html}`;
+                emailStart.classList.remove("active-sidebar");
             });
 
             emailStart.appendChild(startCard);
         });
 
-        emailStart.nextElementSibling.classList.remove("d-none");
-        document.querySelector("#btn-logout").parentElement.classList.remove("d-none");
+        document.getElementById("email").classList.remove("d-none");
 
         spinner(false);
     } else {
         document.getElementById("login").classList.remove("d-none");
-        document.getElementById("email").classList.add("d-none");
     }
 }
 
@@ -99,6 +95,11 @@ document.querySelector("#btn-logout").addEventListener("click", _ => {
     localStorage.removeItem("ns");
     localStorage.removeItem("apikey");
     location.href = "./";
+});
+
+// activate sidebar
+document.querySelector("#btn-toggle").addEventListener("click", _ => {
+    document.querySelector("#email .start").classList.toggle("active-sidebar");
 });
 
 // initial load

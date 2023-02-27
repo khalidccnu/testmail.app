@@ -11,20 +11,52 @@ body {
     max-width: 30rem;
 }
 
+/* ===== Spinner ===== */
+#spinner {
+    min-height: calc(100vh - 6rem);
+}
+
 /* ===== Email ===== */
 .email-box {
     grid-template-columns: minmax(0, 20rem) auto;
 }
 
-.start, .end .card {
-    max-height: 25rem;
+.email-box .start, .email-box .end .card {
+    height: 25rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.active-email {
+.email-box .start {
+    top: 0;
+    left: -100vw;
+    width: 0;
+    opacity: 0;
+}
+
+.email-box .active-sidebar {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.email-box .active-email {
     color: #fff;
     background-color: rgba(0, 98, 102, 0.75);
 }
 
-.email-selection-img {
+.email-box .email-selection-img {
     max-width: 20rem;
+}
+
+/* ===== Media Query ===== */
+@media screen and (min-width: 768px) {
+    /* ===== Email ===== */
+    .email-box .start {
+        position: relative !important;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+    }
 }

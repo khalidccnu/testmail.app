@@ -25,7 +25,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100 bg-secondary-subtle py-5">
 <!-- Login -->
-<section id="login">
+<section id="login" class="d-none">
     <div class="container">
         <div class="login-box mx-auto">
             <div class="brand-logo text-center">
@@ -46,21 +46,24 @@
     </div>
 </section>
 
-<!-- Email -->
-<section id="email">
+<!-- Spinner -->
+<section id="spinner" class="d-none align-items-center text-center">
     <div class="container">
-        <div class="spinner d-none text-center">
-            <div class="spinner-border" role="status"></div>
-        </div>
+        <div class="spinner-border" role="status"></div>
     </div>
+</section>
+
+<!-- Email -->
+<section id="email" class="d-none">
     <div class="container">
-        <div class="d-none text-end mb-3">
+        <div class="d-flex justify-content-between justify-content-md-end mb-3">
+            <button class="btn btn-sm btn-outline-success d-md-none" id="btn-toggle"><i class='bx bx-menu'></i></button>
             <button class="btn btn-sm btn-danger" id="btn-logout">Logout</button>
         </div>
-        <div class="email-box d-grid gap-3">
-            <div class="start d-flex flex-column gap-2 overflow-auto"></div>
-            <div class="end d-none">
-                <div class="card overflow-auto">
+        <div class="email-box position-relative d-md-grid gap-3">
+            <div class="start position-absolute d-flex flex-column gap-2 bg-white p-3 border rounded z-1 overflow-y-auto"></div>
+            <div class="end">
+                <div class="card overflow-y-auto">
                     <div class="email-selection-img mx-auto">
                         <lottie-player src="./asset/img/email.json" background="transparent" speed="1" class="card-img-top" loop autoplay></lottie-player>
                     </div>
