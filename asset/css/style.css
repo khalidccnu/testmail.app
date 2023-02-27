@@ -26,9 +26,13 @@ body {
 }
 
 .email-box .start, .email-box .end .card {
-    height: 25rem;
-    -ms-overflow-style: none;
+    height: calc(100vh - 10rem);
     scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.email-box .start::-webkit-scrollbar, .email-box .end .card::-webkit-scrollbar {
+    display: none;
 }
 
 .email-box .start {
