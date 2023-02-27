@@ -42,6 +42,7 @@ let displayEmail = async _ => {
         let obj;
 
         await nsKeyFetch(localStorage.ns, localStorage.apikey).then(result => obj = result);
+        if (obj.count !== 0) emailStart.innerHTML = "";
 
         obj.emails.forEach(email => {
             let startCard = document.createElement("div");
